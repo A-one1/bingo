@@ -6,7 +6,7 @@ public class Bingo {
     int[][] board;
     int[][] card;
 
-    Bingo( ) {
+    Bingo() {
         board = new int[5][5];
         for (int i = 0; i < 5; i++) {
 
@@ -113,19 +113,14 @@ public class Bingo {
     }
 
     private boolean checkDiag() {
-        if (board[0][0] + board[1][1] + board[2][2] + board[3][3] + board[4][4]  == 0)  {
-            return true;
-        } else if (board[0][4] + board[1][3] + board[2][2] + board[3][1] + board[4][0] == 0) {
-            return true;
-        }
-        return false;
+        return (board[0][0] + board[1][1] + board[2][2] + board[3][3] + board[4][4] == 0 ||
+                board[0][4] + board[1][3] + board[2][2] + board[3][1] + board[4][0] == 0) ;
+
+
     }
 
     private boolean isGameOver() {
-        if (checkCols() || checkRows() || checkDiag()) {
-            return true;
-        }
-        return false;
+        return (checkCols() || checkRows() || checkDiag());
     }
 
 }
